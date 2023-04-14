@@ -58,9 +58,9 @@ Y_test = scaler.transform(Y_test)
     
 model = Sequential()
 
-model.add(Dense(20, input_dim=61, kernel_initializer='uniform', activation='tanh'))
-#model.add(Dense(20, kernel_initializer='normal', activation='elu'))
-#model.add(Dense(20, kernel_initializer='uniform', activation='elu'))
+model.add(Dense(19, input_dim=61, kernel_initializer='uniform', activation='tanh'))
+model.add(Dense(10, kernel_initializer='normal', activation='elu'))
+model.add(Dense(17, kernel_initializer='uniform', activation='elu'))
 model.add(Dense(3, kernel_initializer='uniform',activation='linear'))
 
 
@@ -72,6 +72,10 @@ pyplot.title("ANN Performance \n 1 Hidden layer [20,] ", fontsize=12, fontweight
 pyplot.xlabel('Epochs')
 pyplot.ylabel('Mean Squared Error (mse)')
 pyplot.legend(('training   [95%]', 'testing    [5%]'), loc='best')
+
+
+if not os.path.exists('.\Figures'):
+   os.makedirs('.\Figures')
 
 pyplot.savefig('.\Figures\ANN_performance_MSE.pdf') 
 pyplot.show()
